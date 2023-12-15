@@ -37,4 +37,4 @@ services:
       MYSQL_DATABASE: ${DATABASE_NAME}
     cap_add:
       - SYS_NICE
->>>>>>> cb73f8c (second commit)
+
