@@ -1,0 +1,25 @@
+{
+    "name": "cherif/slim-from-scratch",
+    "autoload": {
+        "psr-4": {
+            "Mafio\\SlimFromScratch\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mafio BOUCHELAGHEM",
+            "email": "boss@mafio.click"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "slim/slim": "4.*",
+        "laminas/laminas-diactoros": "^3.3"
+    },
+    "scripts": {
+        "server": "php -S localhost:8000 -t public"
+    },
+    "config": {
+        "process-timeout": 0
+    }
+}
