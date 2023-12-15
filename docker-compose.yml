@@ -24,7 +24,7 @@ services:
       - php
 
   database:
-    container_name: mysql
+    container_name: slim_mysql
     ports:
       - "${DATABASE_PORT_LOCAL:-3308}:3306"
     image: mysql:8.0.27
