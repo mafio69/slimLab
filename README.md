@@ -74,12 +74,13 @@ docker exec -it slim_php bash
 composer install
 ```
 #### DOCKER
-
-`docker builder prune` - Remove build cache
-___
+___  
+`docker builder prune` - Remove build cache  
 `docker system prune` - Remove all unused containers which are stopped, networks, images (both dangling and unreferenced), and optionally,
-volumes.
-#### Use with caution. Especially databases, all data is deleted.
+volumes.   
+_Use with caution. Especially databases, all data is deleted._  
+`docker network create mf-net` add external network, run in bash in host   
+
 ___
 SLIM official [website](https://www.slimframework.com/)  
 GIT config [documentation](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)  

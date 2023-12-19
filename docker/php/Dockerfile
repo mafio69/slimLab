@@ -14,5 +14,5 @@ WORKDIR /var/www/slim_app
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN git config --global user.email "mf1969@gmail.com" \
+RUN git config --global user.email "boss@mafio.click" \
     && git config --global user.name "Boss Mafio"

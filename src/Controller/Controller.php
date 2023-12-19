@@ -2,22 +2,36 @@
 
 namespace Mafio\Slim\Controller;
 
+use Mafio\Slim\Exceptions\MafioException;
+use Monolog\Logger;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 
 abstract class Controller
 {
-    protected $ci;
+    protected ContainerInterface $container;
+    protected Logger $logger;
 
-    public function __construct(ContainerInterface $ci)
+    public function __construct(ContainerInterface $ci, Logger $logger)
     {
-        $this->ci = $ci;
+        $this->container = $ci;
+        $this->logger = $logger;
     }
 
-    protected function render(Response $response, $template, $data = [])
+    public function render(Response $response, $template, $data = []): Response
     {
-        $html = $this->ci->get('templating')->render($template, $data);
+        $html = '';
+        try {
+            $html = $this->container->get('templating')->render($template, $data);
+        } catch (NotFoundExceptionInterface|ContainerExceptionInterface $e) {
+            $this->logger->critical($e->getMessage(), ["exception" => $e]);
+
+            throw new MafioException($e);
+        }
         $response->getBody()->write($html);
+
         return $response;
     }
 }

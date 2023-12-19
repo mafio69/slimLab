@@ -12,13 +12,19 @@
         }
     ],
     "require": {
-        "php": "^8.0",
-        "slim/slim": "4.*",
-        "laminas/laminas-diactoros": "^3.3"
+        "php": "^8.2",
+        "slim/slim": "4.12.0",
+        "laminas/laminas-diactoros": "^3.3",
+        "monolog/monolog": "3.5.0",
+        "mustache/mustache": "^2.13",
+        "php-di/php-di": "^6.2",
+        "slim/psr7": "*",
+        "slim/http": "*"
     }
     ,
     "require-dev": {
-        "roave/security-advisories": "dev-latest"
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^10.5"
     },
     "scripts": {
         "server": "php -S localhost:8000 -t public"
